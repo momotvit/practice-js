@@ -920,3 +920,924 @@
 //   // Change code above this line
 //   return filteredNumbers;
 // }
+
+//////////////////////////////////////
+
+
+
+
+
+////////////////////////////////////
+
+
+
+// const planets = ["Земля", "Марс", "Венера", "Юпитер"];
+
+// const planetsInUpperCase = planets.map(planet => planet.toUpperCase());
+// console.log(planetsInUpperCase); // ['ЗЕМЛЯ', 'МАРС', 'ВЕНЕРА', 'ЮПИТЕР']
+
+// const planetsInLowerCase = planets.map(planet => planet.toLowerCase());
+// console.log(planetsInLowerCase); // ['земля', 'марс', 'венера', 'юпитер']
+
+// // Оригинальный массив не изменился
+// console.log(planets);
+
+// const students = [
+//   { name: "Манго", score: 83 },
+//   { name: "Поли", score: 59 },
+//   { name: "Аякс", score: 37 },
+//   { name: "Киви", score: 94 },
+//   { name: "Хьюстон", score: 64 },
+// ];
+
+// const names = students.map(student => student.name);
+// console.log(names);
+
+
+// const students = [
+//   { name: "Манго", courses: ["математика", "физика"] },
+//   { name: "Поли", courses: ["информатика", "математика"] },
+//   { name: "Киви", courses: ["физика", "биология"] },
+// ];
+
+// const allCourses = students.flatMap(student => student.courses);
+// // ['математика', 'физика', 'информатика', 'математика', 'физика', 'биология'];
+
+// const uniqueCourses = allCourses.filter(
+//   (course, index, array) => array.indexOf(course) === index
+// );
+
+// console.log(uniqueCourses)
+
+
+////////////////////////////////////////
+
+
+// const total = [2, 7, 3, 14, 6].reduce((previousValue, number) => {
+//   return previousValue + number;
+// }, 0);
+
+// console.log(total); // 32
+
+
+// const someNumbers = [1, 2, 4, 5, 6, 6, 7, 9].reduce((previousValue, number) => {
+//     return previousValue / number;
+// });
+// console.log(someNumbers);
+
+
+/////////////////////////////////////////
+
+
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
+
+// // Пройдем по всем элементам коллекции и добавим значения свойства tags
+// // к аккумулятору, начальное значение которого укажем пустым массивом [].
+// // На каждой итерации пушим в аккумулятор все элементы tweet.tags и возвращаем его.
+// const tags = tweets.reduce((allTags, tweet) => {
+//   allTags.push(...tweet.tags);
+
+//   return allTags;
+// }, []);
+
+// console.log(tags);
+
+// // Наверное сбор тегов не одиночная операция, поэтому напишем функцию
+// // для сбора тегов из коллекции
+// const getTags = tweets =>
+//   tweets.reduce((allTags, tweet) => {
+//     allTags.push(...tweet.tags);
+
+//     return allTags;
+//   }, []);
+
+// console.log(getTags(tweets));
+
+
+/////////////////////////////////
+
+
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
+
+// const getTags = tweets =>
+//   tweets.reduce((allTags, tweet) => {
+//     allTags.push(...tweet.tags);
+
+//     return allTags;
+//   }, []);
+
+// const tags = getTags(tweets);
+
+// // Вынесем callback-функцию отдельно, а в reducе передадим ссылку на нее.
+// // Это стандартная практика если callback-функция довольно большая.
+
+// // Если в объекте-аккумуляторе acc нету своего свойства с ключем tag,
+// // то создаем его и записывает ему значение 0.
+// // В противном случае увеличиваем значение на 1.
+// const getTagStats = (acc, tag) => {
+//   if (!acc.hasOwnProperty(tag)) {
+//     acc[tag] = 0;
+//   }
+
+//   acc[tag] += 1;
+
+//   return acc;
+// };
+
+// // Начальное значение аккумулятора это пустой объект {}
+// const countTags = tags => tags.reduce(getTagStats, {});
+
+// const tagCount = countTags(tags);
+// console.log(tagCount);
+
+/////////////////////////
+
+
+
+// function changeEven(numbers, value) {
+//   // Change code below this line
+//   const newArr = [];
+
+    
+//     numbers.forEach(number => {
+//         if (number % 2 === 0)
+//             number = number + value;
+//         newArr.push(number);
+      
+//     });
+//     console.log(newArr);
+//     console.log(numbers);
+//   // Change code above this line
+// }
+// changeEven([1, 2, 3, 4, 5], 10);
+//  changeEven([2, 8, 3, 7, 4, 6], 10);
+
+//////////////////////////
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+// // Change code below this line
+// const planetsLengths = planets.map(planet => {return planet.length});
+// console.log(planetsLengths);
+
+
+/////////////////////////////////
+
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+// ];
+// // Change code below this line
+
+// const titles = books.map(book => book.title);
+// console.log(titles);
+
+
+/////////////////////////
+
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     genres: ["adventure", "history"],
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     genres: ["fiction"],
+//   },
+//   {
+//     title: "Redder Than Blood",
+//     author: "Tanith Lee",
+//     genres: ["horror", "mysticism"],
+//   },
+// ];
+// // Change code below this line
+
+// const genres = books.flatMap(book => book.genres);
+// console.log(genres);
+
+
+///////////////////////////////
+
+
+// const users =
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     skills: ["ipsum", "lorem"],
+//     gender: "male",
+//     age: 37,
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+//     gender: "female",
+//     age: 34,
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     skills: ["nulla", "anim", "proident", "ipsum", "elit"],
+//     gender: "male",
+//     age: 24,
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     skills: ["adipisicing", "irure", "velit"],
+//     gender: "female",
+//     age: 21,
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     skills: ["ex", "culpa", "nostrud"],
+//     gender: "male",
+//     age: 27,
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     skills: ["non", "amet", "ipsum"],
+//     gender: "male",
+//     age: 38,
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     skills: ["lorem", "veniam", "culpa"],
+//     gender: "female",
+//     age: 39,
+//   },
+// ];
+
+
+// const getUserNames = users => users.map(user => user.name);
+// console.log(getUserNames);
+// console.log(users.name);
+
+
+//////////////////////////////////////
+
+// const users =
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     skills: ["ipsum", "lorem"],
+//     gender: "male",
+//     age: 37,
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+//     gender: "female",
+//     age: 34,
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     skills: ["nulla", "anim", "proident", "ipsum", "elit"],
+//     gender: "male",
+//     age: 24,
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     skills: ["adipisicing", "irure", "velit"],
+//     gender: "female",
+//     age: 21,
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     skills: ["ex", "culpa", "nostrud"],
+//     gender: "male",
+//     age: 27,
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     skills: ["non", "amet", "ipsum"],
+//     gender: "male",
+//     age: 38,
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     skills: ["lorem", "veniam", "culpa"],
+//     gender: "female",
+//     age: 39,
+//   },
+// ];
+
+// const getUserEmails = users => users.map(user => user.email);
+
+
+// console.log(getUserEmails);
+
+
+//////////////////////////////////////////////////
+
+
+
+// const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+// // Change code below this line
+
+// const evenNumbers = numbers.filter(number => number % 2 === 0);
+// console.log(evenNumbers);
+// const oddNumbers = numbers.filter(number => number % 2 !== 0);
+// console.log(oddNumbers);
+
+
+///////////////////////////////////////////////////
+
+
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     genres: ["adventure", "history"],
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     genres: ["fiction", "mysticism"],
+//   },
+//   {
+//     title: "Redder Than Blood",
+//     author: "Tanith Lee",
+//     genres: ["horror", "mysticism", "adventure"],
+//   },
+// ];
+// // Change code below this line
+// const allGenres = books.flatMap(book => book.genres);
+
+// console.log(allGenres);
+// const uniqueGenres = allGenres.filter((genre, index, array) => array.indexOf(genre) === index);
+// console.log(uniqueGenres);
+
+
+
+// //////////////////////////////////////////////////
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+// ];
+
+// const MIN_RATING = 8;
+// const AUTHOR = "Bernard Cornwell";
+// // Change code below this line
+
+// const topRatedBooks = books.filter(book => book.rating > MIN_RATING);
+// console.log(topRatedBooks);
+// const booksByAuthor = books.filter(book => book.author === AUTHOR);
+// console.log(booksByAuthor);
+
+///////////////////////////////////
+
+
+// const getUsersWithAge = (users, minAge, maxAge) => {return users.filter(user => user.age >= minAge && user.age <= maxAge) };
+// // Change code above this line
+
+/////////////////////////////////
+
+
+// const players = [
+//   { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+//   { name: "Poly", playtime: 469, gamesPlayed: 2 },
+//   { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+//   { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+// ];
+// Change code below this line
+// const time = Object.values(playtime);
+// const game = Object.values(gamesPlayed);
+// const totalAveragePlaytimePerGame = players.reduce((total, player) => {return Object.values(player.playtime)/Object.values(player.gamesPlayed)}) ;
+// console.log(totalAveragePlaytimePerGame);
+
+//////////////////////////////////
+
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244
+// };
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+// // Change code below this line
+
+// const totalPlayTime = playtimes.reduce((previousValue, player)=>{return previousValue + player});
+
+// // Change code above this line
+// const averagePlayTime = totalPlayTime / playtimes.length;
+
+
+// const players = [
+//   { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+//   { name: "Poly", playtime: 469, gamesPlayed: 2 },
+//   { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+//   { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+// ];
+// // Change code below this line
+
+// const totalAveragePlaytimePerGame = players.reduce((total, player) => { return  total + player.playtime / player.gamesPlayed},0);
+// console.log(totalAveragePlaytimePerGame);
+
+
+//////////////////////////////////////
+
+
+// Потрібно написати функцію, яка приймає 1 параметр key і буде перевіряти
+// чи має об'єкт  такий ключ - поверне true, інакше false
+
+// const obj = {
+//   name: 'Jhon',
+//   car:  'Audi',
+//   carColor: 'White'
+// }
+
+// const checkFn = (key) => {
+//     // return obj.hasOwnProperty(key)
+//     // return Object.keys(obj).includes(key);
+//     // return key in obj
+// };
+
+
+// console.log(checkFn('name'));
+// console.log(checkFn('knkn'));
+
+
+//////////////////////////////////////////////
+
+
+
+// Напишіть функцію для перевірки об'єкта,
+// Чи є елемент простим об'єктом,
+// чи масивом, null.
+
+// const checkTypes = (value) => {
+//     if (Array.isArray(value)) {
+//         return "Array";
+//     } else if (value === null) {
+//         return "null";
+//     }
+       
+//     return typeof (value)
+// };
+
+// console.log(checkTypes(1));
+// console.log(checkTypes('bhj'));
+// console.log(checkTypes(true));
+// console.log(checkTypes(undefined));
+// console.log(checkTypes({}));
+// console.log(checkTypes([]));
+// console.log(checkTypes(null));
+
+
+
+
+///////////////////////////////////////////////////
+
+
+
+// Створіть функцію multiplyNumeric(obj),
+//   яка множить всі числові властивості об'єкта obj на 2.
+
+// до  виклику функції
+
+
+// multiplyNumeric(menu);
+
+// // після виклику функції
+// menu = {
+//   width: 400,
+//   height: 600,
+//   title: "My menu"
+// };
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+// const multiplyNumeric = obj => {
+//     for (let key in obj) {
+//         console.log(key);
+//         console.log(obj[key]);
+//         if (typeof obj[key] === `Number`) {
+//             obj[key] *= 2;
+//         }
+//     }
+//     return obj;
+// }
+// multiplyNumeric(menu);
+
+
+//////////////////////////////////
+
+
+//У нас є об'єкт, в якому зберігаються зарплати
+//нашої команди
+//Напишіть код для обчислення суми всіх зарплат і
+//збережіть його результат у змінній sum.
+//Якщо об'єкт salaries порожній, то результат має бути 0
+
+// const salaries = {
+//   Mango: 570,
+//   Poly: 900,
+//   Ajax: 1470,
+// };
+
+ 
+// const calculateSalary = (salaries) => {
+//     let totalSalary = 0;
+//     // for (let key in salaries) {
+//     //     totalSalary += salaries[key];
+//     // }
+//     // return totalSalary;
+    
+//  const salaries = {
+//   Mango: 570,
+//   Poly: 900,
+//   Ajax: 1470,
+// };
+
+// const calcSalaries = (salaries) => {
+//   // let totalSalarie = 0;
+//   // for (let key in salaries) {
+//   //   totalSalarie += salaries[key];
+//   // }
+//   // return totalSalarie;
+// return Object.values(salaries).reduce((totalSalarie, item) => totalSalarie + item,0)
+
+// }
+
+// console.log(calcSalaries(salaries))
+
+
+//     console.log(totalSalary);
+
+    //Напишіть функцію calcTotalPrice(stones, stonesName),
+//яка приймає масив об'єктів і
+//рядок з назвою каменю.
+//Функція повертає загальну вартість каміння
+//з таким ім'ям
+
+// const stones = [
+//   { name: "Emerald", price: 1300, quantity: 4 },
+//   { name: "Diamond", price: 2700, quantity: 6 },
+//   { name: "Sapphire", price: 400, quantity: 7 },
+//   { name: "Rubble", price: 150, quantity: 100 },
+// ];
+
+
+// const calcTotalPrice = (stones, stonesName) => {
+//     const activeStone = stones.find(stone => stone.name === stonesName);
+//     if (activeStone) {
+//         const { price, quantity } = activeStone;
+//         return price * quantity;
+        
+//     } else {
+//         return `not found`;
+//     }
+    
+// }
+ 
+
+
+// console.log(calcTotalPrice(stones, "Diamond"))
+// const result = calcTotalPrice(stones, "Gold");
+// console.log(result);
+
+
+
+///////////////////////////////////////////////////
+
+
+
+// Напишіть функцію sumInput(), яка:
+// Просить користувача ввести значення, використовуючи prompt та зберігає їх у масив.
+// Закінчує запитувати значення, коли користувач введе не числове значення, порожній рядок або натисне «Скасувати».
+// Підраховує та повертає суму елементів масиву.
+//  P.S. Нуль 0 – вважається числом, не зупиняйте введення значень під час введення «0».
+//новий об'єкт без зазначеного параметра
+//Очікуваний результат ({a: 1. b: 2}, 'b') => {a: 1}
+ 
+
+// const updateObject = (obj, removeKey) => {
+//     const newObject = { ...obj };
+//     delete newObj[removeKey];
+//     return newObject;
+// }
+
+// const object = {
+//     name: "gold",
+//     price: 444,
+//     carat: 33,
+
+// }
+
+// console.log(updateObject(obj, 'carat'));
+// console.log(obj)
+
+
+////////////////////////////////////////////////////////////////
+
+
+
+// Напишіть функцію sumInput(), яка:
+// Просить користувача ввести значення, використовуючи prompt
+// та зберігає їх у масив.
+// Закінчує запитувати значення, коли користувач введе
+//  не числове значення, порожній рядок або натисне «Скасувати».
+// Підраховує та повертає суму елементів масиву.
+//  P.S. Нуль 0 – вважається числом, не зупиняйте введення
+// значень під час введення «0».
+
+
+// const sumInput = () => {
+//     const numbers = [];
+
+//     while (true) {
+//         const value = prompt(`enter number`);
+//         const number = Number(value);
+//         console.log(isFinite(value));
+//         if (value === null ||value.trim()===""|| !isFinite(value)) {
+//           break;
+//         }
+//           numbers.push(number);
+//     }
+   
+//     console.log(numbers);
+//     return numbers.reduce((acc, number) => acc + number, 0);
+// }
+// sumInput();
+
+// console.log(sumInput());
+
+
+/////////////////////////////////////////////////////////////
+
+
+
+// Напишіть код, щоб видалити всі елементи в заданому масиві
+// Функція `deleteElement()` видаляє всі входження елемента із заданого масиву.
+
+
+
+// let arr = [23,56,4,78,5,63,45,210,56];
+// // arr = deleteElement(arr, 56)
+// console.log(arr); //[23, 4, 78, 5, 63, 45, 210]
+
+
+// const deleteElement = (arr, removeEl, replaceEl) => {
+//     // for (let i = 0; i < arr.length; i += 1){
+//     //     if (arr[i] === removeEl);
+//     //     arr.splice(i, 1, rep);
+//     // }
+
+//     return arr.filter(el => el !== removeEl);
+// }
+// console.log(deleteElement(arr, 56,1));
+// console.log(arr);
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
+// Напишіть метод, який розбиває масив на частини визначеного розміру
+// const data = [1, 2, 3, 4, 5, 6, 7];
+// const chunkArray = (array, divider) => {
+//     let index = 0;
+//     const newArray = [];
+//     while (index < array.length) {
+//         const chunk = array.slice(index, divider + index);
+//         newArray.push(chunk);
+//         index += divider;
+//     }
+//     return newArray
+// }
+
+
+
+
+
+
+
+
+// console.log(chunkArray(data, 2)) // [[1, 2], [3, 4], [5, 6], [7]]
+// console.log(chunkArray(data, 3)) // [[1, 2, 3], [4, 5, 6], [7]]
+
+
+
+///////////////////////////////////////
+
+// Напишіть метод, який розбиває масив на частини визначеного розміру
+
+
+
+// const data = [1, 2, 3, 4, 5, 6, 7];
+
+// const chunkArray = (array, devider) => {
+//   let index = 0;
+//   const newArrey = [];
+//   while (index < array.length)
+
+//   {
+//     const chunk = array.slice(index, devider + index)
+//     newArrey.push(chunk);
+//     index += devider;
+//   }
+//   return newArrey
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log(chunkArray(data, 2)) // [[1, 2], [3, 4], [5, 6], [7]]
+// console.log(chunkArray(data, 3)) // [[1, 2, 3], [4, 5, 6], [7]]
+
+
+///////////////////////////////////////////
+
+
+// Потрібно зробити кожний перший символ в рядку з великої літери
+// let strings = ["торт", "шоколад", "кекс", "сир",
+//   "бутерброд", "масло", "жиле", "каша", "олія"
+// ];
+
+// const firstLetterToUpperCase = (array) => {
+//     return array.map(str => `${str[0].toUpperCase()}${str.slice(1)}`)
+// }
+
+// console.log(firstLetterToUpperCase(strings));
+
+
+
+/////////////////////////////////
+
+
+// const students = [
+//   { name: "Mango", score: 83 },
+//   { name: "Poly", score: 59 },
+//   { name: "Ajax", score: 37 },
+//   { name: "Kiwi", score: 94 },
+// ];
+
+// const inAscendingScoreOrder = [...students].sort(
+//   (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
+// );
+
+// const inDescendingScoreOrder = [...students].sort(
+//   (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
+// );
+
+// const inAlphabeticalOrder = [...students].sort((firstStudent, secondStudent) =>
+//   firstStudent.name.localeCompare(secondStudent.name)
+// );
+
+
+/////////////////////////////////////
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+// Change code below this line
+
+const sortedByAuthorName = [...books].sort((a, b) => a.author.localeCompare(b.author));
+console.log(sortedByAuthorName);
+const sortedByReversedAuthorName =[...books].sort((a, b) => b.author.localeCompare(a.author));
+console.log(sortedByReversedAuthorName);
+const sortedByAscendingRating = [...books].sort((a, b) => a.rating - b.rating);
+console.log(sortedByAscendingRating);
+const sortedByDescentingRating = [...books].sort((a, b) => b.rating - a.rating);
+console.log(sortedByDescentingRating);
