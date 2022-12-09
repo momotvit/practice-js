@@ -1996,7 +1996,7 @@
 const numbers = [5, 10, 15, 20, 25];
 
 const total = numbers.reduce((acc, number) => acc + number, 0);
-// console.log(total);
+console.log(total);
 
 // accumulator = 0 -> number = 5 -> return 0 + 5
 // accumulator = 5 -> number = 10 -> return 5 + 10
@@ -2103,3 +2103,16 @@ console.log(tagsStats);
 // если свойствоства нет с таким ключом что в tag, сделать и записать 1
 
 
+function greetGuest(greeting) {
+  console.log(`${greeting}, ${this.username}.`);
+}
+
+const mango = {
+  username: "Манго",
+};
+const poly = {
+  username: "Поли",
+};
+
+greetGuest.apply(mango, ["Добро пожаловать"]); // Добро пожаловать, Манго.
+greetGuest.apply(poly, ["С приездом"]); // С приездом, Поли.
