@@ -1993,10 +1993,10 @@
  * - Заменяет всё на свете, но использовать нужно с умом
  */
 
-const numbers = [5, 10, 15, 20, 25];
+// const numbers = [5, 10, 15, 20, 25];
 
-const total = numbers.reduce((acc, number) => acc + number, 0);
-console.log(total);
+// const total = numbers.reduce((acc, number) => acc + number, 0);
+// console.log(total);
 
 // accumulator = 0 -> number = 5 -> return 0 + 5
 // accumulator = 5 -> number = 10 -> return 5 + 10
@@ -2008,66 +2008,66 @@ console.log(total);
  * Считаем общую зарплату
  */
 
-const salary = {
-  mango: 100,
-  poly: 50,
-  ajax: 150,
-};
+// const salary = {
+//   mango: 100,
+//   poly: 50,
+//   ajax: 150,
+// };
 
-const totalSalary = Object.values(salary).reduce(
-  (total, value) => total + value,
-  0,
-);
-// console.log(totalSalary);
+// const totalSalary = Object.values(salary).reduce(
+//   (total, value) => total + value,
+//   0,
+// );
+// // console.log(totalSalary);
 
-/*
- * Считаем общее количество часов
- */
+// /*
+//  * Считаем общее количество часов
+//  */
 
-const players = [
-  { id: 'player-1', name: 'Mango', timePlayed: 310, online: false },
-  { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
-  { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
-  { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
-  { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
-];
+// const players = [
+//   { id: 'player-1', name: 'Mango', timePlayed: 310, online: false },
+//   { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
+//   { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
+//   { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
+//   { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
+// ];
 
-const totalTimePlayed = players.reduce(
-  (totalTime, player) => totalTime + player.timePlayed,
-  0,
-);
+// const totalTimePlayed = players.reduce(
+//   (totalTime, player) => totalTime + player.timePlayed,
+//   0,
+// );
 
 // console.log(totalTimePlayed);
 
 /*
  * Считаем общую сумму товаров корзины
  */
-const cart = [
-  { label: 'Apples', price: 100, quantity: 2 },
-  { label: 'Bananas', price: 120, quantity: 3 },
-  { label: 'Lemons', price: 70, quantity: 4 },
-];
+// const cart = [
+//   { label: 'Apples', price: 100, quantity: 2 },
+//   { label: 'Bananas', price: 120, quantity: 3 },
+//   { label: 'Lemons', price: 70, quantity: 4 },
+// ];
 
-const totalAmount = cart.reduce(
-  (total, { price, quantity }) => total + price * quantity,
-  0,
-);
+// const totalAmount = cart.reduce(
+//   (total, { price, quantity }) => total + price * quantity,
+//   0,
+// );
 
-console.log(totalAmount);
+// console.log(totalAmount);
 
-/*
- * Собираем все теги из твитов
- */
-const tweets = [
-  { id: '000', likes: 5, tags: ['js', 'nodejs'] },
-  { id: '001', likes: 2, tags: ['html', 'css'] },
-  { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
-  { id: '003', likes: 8, tags: ['css', 'react'] },
-  { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
-];
+// /*
+//  * Собираем все теги из твитов
+//  */
+// const tweets = [
+//   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//   { id: '001', likes: 2, tags: ['html', 'css'] },
+//   { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+//   { id: '003', likes: 8, tags: ['css', 'react'] },
+//   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+// ];
 
-const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
-// console.log(allTags);
+// const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+// // console.log(allTags);
 
 // acc = [], tweet.tags = ['js', 'nodejs'] return [...[], ...['js', 'nodejs']]
 // acc = ['js', 'nodejs'] tweet.tags ['html', 'css']
@@ -2091,28 +2091,139 @@ const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
 //   return acc;
 // }, {});
 
-const tagsStats = allTags.reduce((acc, tag) => {
-  return {
-    ...acc,
-    [tag]: acc[tag] ? acc[tag] + 1 : 1,
-  };
-}, {});
-console.log(tagsStats);
+// const tagsStats = allTags.reduce((acc, tag) => {
+//   return {
+//     ...acc,
+//     [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//   };
+// }, {});
+// console.log(tagsStats);
 
-// если свойство с ключом tag есть. увеличить его значение на 1
-// если свойствоства нет с таким ключом что в tag, сделать и записать 1
+// // если свойство с ключом tag есть. увеличить его значение на 1
+// // если свойствоства нет с таким ключом что в tag, сделать и записать 1
 
 
-function greetGuest(greeting) {
-  console.log(`${greeting}, ${this.username}.`);
+// function greetGuest(greeting) {
+//   console.log(`${greeting}, ${this.username}.`);
+// }
+
+// const mango = {
+//   username: "Манго",
+// };
+// const poly = {
+//   username: "Поли",
+// };
+
+// greetGuest.apply(mango, ["Добро пожаловать"]); // Добро пожаловать, Манго.
+// greetGuest.apply(poly, ["С приездом"]); // С приездом, Поли.
+
+
+
+///////////////////////////////////////////
+
+
+// const employee = {
+//   baseSalary: 30000,
+//   overtime: 10,
+//   rate: 20,
+
+//   getWage() {
+//     return this.baseSalary + this.overtime * this.rate;
+
+//   },
+// };
+// console.log(employee.baseSalary + employee.overtime * employee.rate);
+// employee.getWage();
+
+
+
+//////////////////////////////////////////////
+
+
+
+// const animal = {
+//   legs: 4,
+// };
+// const dog = Object.create(animal);
+// dog.name = "Манго";
+
+// console.log(dog); // { name: 'Манго', __proto__: animal }
+// console.log(animal.isPrototypeOf(dog)); // true
+
+
+
+/////////////////////////////////////
+
+
+// class User {
+//   // Тело класса
+// }
+
+// const mango = new User();
+// console.log(mango); // {}
+
+// const poly = new User();
+
+
+////////////////////////////////////////////
+
+
+
+// class User {
+//   // Синтаксис объявления метода класса
+//   constructor(name, email, adress) {
+//     // Инициализация свойств экземпляра
+//     this.email = email;
+//     this.name = name;
+//     this.adress = adress;
+  
+//   }
+// }
+
+// const mango = new User("Манго", "mango@mail.com", "343 avenue NW");
+// console.log(mango); // { name: 'Манго', email: 'mango@mail.com' }
+
+// const poly = new User("Поли", "poly@mail.com", "5th street");
+// console.log(poly); // { name: 'Поли', email: 'poly@mail.com' }
+
+// const jule = new User("Jule", "jule@mail.com");
+// console.log(jule); // { name: 'Поли', email: 'poly@mail.com' }
+
+// console.log(User);
+
+
+
+///////////////////////////////////////////////
+
+
+// class User {
+//   static #takenEmails = [];
+
+//   static isEmailTaken(email) {
+//     return User.#takenEmails.includes(email);
+//   }
+
+//   #email;
+
+//   constructor({ email }) {
+//     this.#email = email;
+//     User.#takenEmails.push(email);
+//   }
+// }
+
+// const mango = new User({ email: "mango@mail.com" });
+
+// console.log(User.isEmailTaken("poly@mail.com"));
+// console.log(User.isEmailTaken("mango@mail.com"));
+
+
+ ///////////////////////////////////////
+
+
+
+const objC = {
+  c : 4,
 }
-
-const mango = {
-  username: "Манго",
-};
-const poly = {
-  username: "Поли",
-};
-
-greetGuest.apply(mango, ["Добро пожаловать"]); // Добро пожаловать, Манго.
-greetGuest.apply(poly, ["С приездом"]); // С приездом, Поли.
+ 
+console.log(objC);
+console.log(objC.hasOwnProperty('c'));
