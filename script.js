@@ -3066,7 +3066,8 @@
 
 
 //* Example 7 - Сортування масиву із циклом
-// Напиши скрипт сортування масиву рядків в алфавітному порядку за першою літерою елемента.
+// Напиши скрипт сортування масиву рядків в алфавітному 
+//порядку за першою літерою елемента.
 
 // const langs = ["python", "javascript", "c++", "haskel", "php", "ruby"];
 
@@ -3103,46 +3104,51 @@
 //! ============
  // як перебрати обєкт через for in в масив
 
-const apartment = [{
-  descr: "Spacious apartment in the city center",
-  rating: 1,
-  price: 2153,
-},
-{
-  descr: "Spacious apartment in the city center",
-  rating: 2,
-  price: 2153,
-  },
-{
-  descr: "Spacious apartment in the city center",
-  rating: 3,
-  price: 2153,
-  something: {
-    hhh: "pop",
-    ggg:99,
-  }
-  },
-{
-  descr: "Spacious apartment in the city center",
-  rating: 4,
-  price: 2153,
-}]
-let newArr = [];
+// const apartment = [{
+//   descr: "Spacious apartment in the city center",
+//   rating: 1,
+//   price: 2153,
+// },
+// {
+//   descr: "Spacious apartment in the city center",
+//   rating: 2,
+//   price: 2153,
+//   },
+// {
+//   descr: "Spacious apartment in the city center",
+//   rating: 3,
+//   price: 2153,
+//   something: {
+//     hhh: "pop",
+//     ggg:99,
+//   }
+//   },
+// {
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+// }]
+// let newArr = [];
 // apartment.forEach(function foo(element,index) {
 //   console.log(Object.keys(element));
 //   console.log(Object.values(element));
+  //  if (element.hasOwnProperty("something")) {
+  //   console.log(element);  
+  //   console.log(element.something)
+  // }  
 
-//   console.log(element.hasOwnProperty(something));
+  // console.log(element.hasOwnProperty(element.something));
 
 // })
 
-for (const element of apartment) {
-  if (element.hasOwnProperty("something")) {
-    console.log(element);
-    
-  }
-  
-}
+// for (const element of apartment) {
+  // if (element.hasOwnProperty("something")) {
+  //   console.log(element);  
+  //   console.log(element.something)
+  // }  
+// }
+
+
 
 
 
@@ -3468,3 +3474,117 @@ for (const element of apartment) {
 // console.log(account.getTransactionTotal(transactionTypes.DEPOSIT));
 
 // console.log(account);
+
+
+// const numbers = [1, 2, 3, 4, 5];
+// const filteredNumbers = numbers.filter(value => value > 3);
+// console.log(filteredNumbers); // [4, 5]
+
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// const moreNumbers = [1, 2, 3, 4, 5, 6, 6];
+
+// const addingNumbers = [...moreNumbers, ...numbers];
+// console.log(addingNumbers);
+
+// const logMessage = (number, index) => {
+//   console.log(`Индекс ${index}, значение ${number}`);
+// };
+
+// // numbers.forEach(logMessage);
+
+// addingNumbers.forEach(logMessage)
+
+
+
+
+// const dirtyMultiply = (array, value) => {
+//   for (let i = 0; i < array.length; i += 1) {
+//     array[i] = array[i] * value;
+//   }
+// };
+
+// const numbers = [1, 2, 3, 4, 5];
+// const numbersCopy = [...numbers];
+// console.log(numbersCopy);
+// dirtyMultiply(numbersCopy, 2);
+// // Произошла мутация исходных данных - массива numbers
+// console.log(numbersCopy); // [2, 4, 6, 8, 10]
+
+
+// const planets = ["mars", , "jupiter", "venera"];
+// planets.splice(1, 1, "some","boom");
+// console.log(planets);
+// const playingWithPlanets = planets.map((planet, index) => {
+//   console.log(`${planet} has its own index ${index} =))`);
+// });
+
+///////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+//  спросить почему allCourses.indexOf(course) === index)??????????????
+
+
+
+
+
+
+
+
+
+
+
+// const students = [
+//   { name: "Манго", courses: ["математика", "физика"] },
+//   { name: "Поли", courses: ["информатика", "математика"] },
+//   { name: "Киви", courses: ["физика", "биология"] },
+// ];
+   
+// const allCourses = students.flatMap(student => student.courses);
+// console.log(allCourses);
+// const uniqueCourses = allCourses.filter((course, index, allCourses) =>
+//   allCourses.indexOf(course) === index);
+// console.log(uniqueCourses);
+
+// ...........................................................
+
+
+
+
+
+
+
+
+// ................................................................... 
+
+
+
+const LOW_SCORE = 50;
+const HIGH_SCORE = 80;
+const students = [
+  { name: "Манго", score: 83 },
+  { name: "Поли", score: 59 },
+  { name: "Аякс", score: 37 },
+  { name: "Киви", score: 94 },
+  { name: "Хьюстон", score: 64 },
+];
+
+const best = students.filter(student => student.score >= HIGH_SCORE);
+console.log(best); // Массив объектов с именами Манго и Киви
+
+const worst = students.filter(student => student.score < LOW_SCORE);
+console.log(worst); // Массив с одним объектом Аякс
+
+// В коллбек-функции удобно деструктуризировать свойства объекта
+const average = students.filter(
+  ({score}) => score >= LOW_SCORE && score < HIGH_SCORE);
+console.log(average); // Массив объектов с именами Поли и Хьюстон
