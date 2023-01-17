@@ -3568,23 +3568,111 @@
 
 
 
-const LOW_SCORE = 50;
-const HIGH_SCORE = 80;
-const students = [
-  { name: "Манго", score: 83 },
-  { name: "Поли", score: 59 },
-  { name: "Аякс", score: 37 },
-  { name: "Киви", score: 94 },
-  { name: "Хьюстон", score: 64 },
+// const LOW_SCORE = 50;
+// const HIGH_SCORE = 80;
+// const students = [
+//   { name: "Манго", score: 83 },
+//   { name: "Поли", score: 59 },
+//   { name: "Аякс", score: 37 },
+//   { name: "Киви", score: 94 },
+//   { name: "Хьюстон", score: 64 },
+// ];
+
+// const best = students.filter(student => student.score >= HIGH_SCORE);
+// console.log(best); // Массив объектов с именами Манго и Киви
+
+// const worst = students.filter(student => student.score < LOW_SCORE);
+// console.log(worst); // Массив с одним объектом Аякс
+
+// // В коллбек-функции удобно деструктуризировать свойства объекта
+// const average = students.filter(
+//   ({score}) => score >= LOW_SCORE && score < HIGH_SCORE);
+// console.log(average); // Массив объектов с именами Поли и Хьюстон
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
+
+// // Пройдем по всем элементам коллекции и добавим значения свойства tags
+// // к аккумулятору, начальное значение которого укажем пустым массивом [].
+// // На каждой итерации пушим в аккумулятор все элементы tweet.tags и возвращаем его.
+// const tags = tweets.reduce((allTags, tweet) => {
+//   allTags.push(...tweet.tags);
+
+//   return allTags;
+// }, []);
+
+// // console.log(tags);
+
+// // Наверное сбор тегов не одиночная операция, поэтому напишем функцию
+// // для сбора тегов из коллекции
+// let allTags = [];
+// const getTags = tweets =>
+//   tweets.reduce((allTags, tweet) => {
+//     allTags.push(...tweet.tags);
+//     console.log(allTags);
+//     return allTags;
+//   }, []);
+
+// console.log(getTags(tweets));
+
+
+
+////////////////////////////
+
+const tweets = [
+  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  { id: "001", likes: 2, tags: ["html", "css"] },
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", likes: 8, tags: ["css", "react"] },
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
 ];
 
-const best = students.filter(student => student.score >= HIGH_SCORE);
-console.log(best); // Массив объектов с именами Манго и Киви
+const getTags = tweets =>
+  tweets.reduce((allTags, tweet) => {
+    allTags.push(...tweet.tags);
 
-const worst = students.filter(student => student.score < LOW_SCORE);
-console.log(worst); // Массив с одним объектом Аякс
+    return allTags;
+  }, []);
 
-// В коллбек-функции удобно деструктуризировать свойства объекта
-const average = students.filter(
-  ({score}) => score >= LOW_SCORE && score < HIGH_SCORE);
-console.log(average); // Массив объектов с именами Поли и Хьюстон
+const tags = getTags(tweets);
+console.log(tags);
+
+// Вынесем callback-функцию отдельно, а в reducе передадим 
+//ссылку на нее.
+// Это стандартная практика если callback-функция довольно большая.
+
+// Если в объекте-аккумуляторе acc нету своего свойства с ключем tag,
+// то создаем его и записывает ему значение 0.
+// В противном случае увеличиваем значение на 1.
+const getTagStats = (acc, tag) => {
+  if (!acc.hasOwnProperty(tag)) {
+    acc[tag] = 0;
+  }
+
+  acc[tag] += 1;
+
+  return acc;
+};
+
+// Начальное значение аккумулятора это пустой объект {}
+const countTags = tags => tags.reduce(getTagStats, {});
+
+const tagCount = countTags(tags);
+// console.log(tagCount);
