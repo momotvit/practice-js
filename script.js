@@ -3636,43 +3636,295 @@
 
 ////////////////////////////
 
-const tweets = [
-  { id: "000", likes: 5, tags: ["js", "nodejs"] },
-  { id: "001", likes: 2, tags: ["html", "css"] },
-  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
-  { id: "003", likes: 8, tags: ["css", "react"] },
-  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
+
+// const getTags = tweets =>
+//   tweets.reduce((allTags, tweet) => {
+//     allTags.push(...tweet.tags);
+
+//     return allTags;
+//   }, []);
+
+// const tags = getTags(tweets);
+// console.log(tags);
+
+// // Вынесем callback-функцию отдельно, а в reducе передадим 
+// //ссылку на нее.
+// // Это стандартная практика если callback-функция довольно большая.
+
+// // Если в объекте-аккумуляторе acc нету своего свойства с ключем tag,
+// // то создаем его и записывает ему значение 0.
+// // В противном случае увеличиваем значение на 1.
+// const getTagStats = (acc, tag) => {
+//   if (!acc.hasOwnProperty(tag)) {
+//     acc[tag] = 0;
+//   }
+
+//   acc[tag] += 1;
+
+//   return acc;
+// };
+
+// // Начальное значение аккумулятора это пустой объект {}
+// const countTags = tags => tags.reduce(getTagStats, {});
+
+// const tagCount = countTags(tags);
+// // console.log(tagCount);
+
+
+
+
+
+/////////////////////////////////
+
+
+
+
+// // Колбэк-функция
+// function greet(name) {
+//   console.log(`Добро пожаловать ${name}.`);
+// }
+
+// // Функция высшего порядка
+// function registerGuest(name, callback) {
+//   console.log(`Регистрируем гостя ${name}.`);
+//   callback(name);
+// }
+
+// registerGuest("Mango", greet);
+
+
+// function deliverPizza(pizzaName) {
+//   return `Delivering ${pizzaName} pizza.`;
+// }
+
+// function makePizza(pizzaName) {
+//   return `Pizza ${pizzaName} is being prepared, please wait...`;
+// }
+
+// // Chande code below this line
+// function makeMessage(pizzaName,callback) {
+//   return callback(pizzaName);
+// }
+
+
+
+// console.log(makeMessage("papperoni", makePizza));
+// console.log(makeMessage("papperoni", deliverPizza));
+
+//////
+
+
+
+// function makePizza(pizzaName, callback) {
+//   console.log(`Pizza ${pizzaName} is being prepared, please wait...`)
+//   callback(pizzaName);
+// }
+// makePizza("Royal Grand", function deliverPizza(pizzaName) {
+//   console.log(`Delivering pizza ${pizzaName}.`);
+  
+// });
+
+
+/////
+
+
+
+// function processCall(recipient, onAvailable, onNotAvailable) {
+//   // Имитируем доступеность абонента случайным числом
+//   const isRecipientAvailable = Math.random() > 0.5;
+
+//   if (!isRecipientAvailable) {
+//     onNotAvailable(recipient);
+//     return;
+//   }
+
+//   onAvailable(recipient);
+// }
+
+// function takeCall(name) {
+//   console.log(`Соединяем с ${name}, ожидайте...`);
+//   // Логика принятия звонка
+// }
+
+// function activateAnsweringMachine(name) {
+//   console.log(`Абонент ${name} недоступен, оставьте сообщение.`);
+//   // Логика активации автоответчика
+// }
+
+// function leaveHoloMessage(name) {
+//   console.log(`Абонент ${name} недоступен, записываем голограмму.`);
+//   // Логика записи голограммы
+// }
+
+// processCall("Mango", takeCall, activateAnsweringMachine);
+// // processCall("Poly", takeCall, leaveHoloMessage);
+
+
+////////////////////
+
+
+// const pizzaPalace = {
+//   pizzas: ['Ultracheese', 'Smoked', 'Four meats'],
+//   order(pizzaName,onSucces,onError) {
+//     if(this.pizzas.includes(pizzaName)){
+      
+//        return onSucces(pizzaName);
+//     }
+//    return onError(`There is no pizza with a name ${pizzaName} in the assortment.`)
+//   },
+// };
+// // Change code above this line
+
+// // Callback for onSuccess
+// function makePizza(pizzaName) {
+//   return `Your order is accepted. Cooking pizza ${pizzaName}.`;
+// }
+
+// // Callback for onError
+// function onOrderError(error) {
+//   return `Error! ${error}`;
+// }
+
+// // Method calls with callbacks
+// console.log(pizzaPalace.order('Smoked', makePizza, onOrderError));
+// console.log(pizzaPalace.order('Four meats', makePizza, onOrderError))
+// console.log(pizzaPalace.order('Big Mike', makePizza, onOrderError))
+// console.log(pizzaPalace.order('Vienna', makePizza, onOrderError))
+
+
+
+// ///////////////
+
+
+// function filterArray(numbers, value) {
+//   const filteredNumbers = [];
+//   // Change code below this line
+// numbers.forEach(function filter(number) {
+//      if (number > value) {
+//       filteredNumbers.push(number);
+//     }
+// })
+//   return filteredNumbers;
+// }
+
+
+// console.log(filterArray([12, 24, 8, 41, 76], 20));
+
+
+////////////////////////////
+
+// // Change code below this line
+// const calculateTotalPrice=(orderedItems) => {
+//   let totalPrice = 0;
+//   orderedItems.forEach(item =>
+//     totalPrice += item);
+//  return totalPrice;
+// };
+// // Change code above this line
+// console.log(calculateTotalPrice([12, 85, 37, 4]))
+
+
+// //////////////////////////////////////
+
+
+// // Change code below this line
+// const filterArray=(numbers, value) =>{
+//   const filteredNumbers = [];
+
+//   numbers.forEach((number) => {
+//     if (number > value) {
+//       filteredNumbers.push(number);
+//     }
+    
+//   });
+// console.log(filteredNumbers)
+//   // Change code above this line
+//   return filteredNumbers;
+// }
+// filterArray([12, 24, 8, 41, 76], 20);
+
+
+//////////////////////////////////////
+
+
+// function changeEven(numbers, value) {
+//   // Change code below this line
+//   let newArr = [];
+//   numbers.forEach(number => {
+//     if (number % 2 === 0)
+//       number = number + value;
+//     newArr.push(number);
+//   });
+//   // for (let i = 0; i < numbers.length; i += 1) {
+//   //   if (numbers[i] % 2 === 0) {
+      
+//   //     newArr.push(numbers[i] + value);
+//   //   }
+//   //   else if (numbers[i] % 2 !== 0) {
+//   //     newArr.push(numbers[i]);
+//   //   } 
+//   // }
+//   console.log(newArr)
+//   return newArr;
+//   // Change code above this line
+// }
+// changeEven([44, 13, 81, 92, 36, 54], 100);
+
+
+
+/////////////////////////////////////////
+
+
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+
+// const planetsInUpperCase = planets.map(planet => planet.toUpperCase());
+// planetsInUpperCase.push("non");
+// console.log(planetsInUpperCase); // ["EARTH", "MARS", "VENUS", "JUPITER"]
+
+
+// const planetsInLowerCase = planets.map(planet => planet.toLowerCase());
+// console.log(planetsInLowerCase); // ["earth", "mars", "venus", "jupiter"]
+
+// // Оригинальный массив не изменился
+// console.log(planets); // ["Earth", "Mars", "Venus", "Jupiter"]
+
+// const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+// // Change code below this line
+// const planetsLengths = planets.map(planet => planet.length);
+// console.log(planetsLengths)
+
+
+/////////////////////////
+
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
 ];
+// Change code below this line
 
-const getTags = tweets =>
-  tweets.reduce((allTags, tweet) => {
-    allTags.push(...tweet.tags);
-
-    return allTags;
-  }, []);
-
-const tags = getTags(tweets);
-console.log(tags);
-
-// Вынесем callback-функцию отдельно, а в reducе передадим 
-//ссылку на нее.
-// Это стандартная практика если callback-функция довольно большая.
-
-// Если в объекте-аккумуляторе acc нету своего свойства с ключем tag,
-// то создаем его и записывает ему значение 0.
-// В противном случае увеличиваем значение на 1.
-const getTagStats = (acc, tag) => {
-  if (!acc.hasOwnProperty(tag)) {
-    acc[tag] = 0;
-  }
-
-  acc[tag] += 1;
-
-  return acc;
-};
-
-// Начальное значение аккумулятора это пустой объект {}
-const countTags = tags => tags.reduce(getTagStats, {});
-
-const tagCount = countTags(tags);
-// console.log(tagCount);
+const titles = books.map(book => book.title);
+console.log(titles)
