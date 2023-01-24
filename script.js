@@ -5068,24 +5068,41 @@
 /////////////////////////////////
 
 
-class User {
-  static #takenEmails = [];
+// class User {
+//   static #takenEmails = [];
   
 
-  static isEmailTaken(email) {
-    return this.#takenEmails.includes(email);
-  }
+//   static isEmailTaken(email) {
+//     return this.#takenEmails.includes(email);
+//   }
 
-  #email;
+//   #email;
 
-  constructor({ email }) {
-    this.#email = email;
-    User.#takenEmails.push(email);
+//   constructor({ email }) {
+//     this.#email = email;
+//     User.#takenEmails.push(email);
     
-  }
-}
+//   }
+// }
 
-const mango = new User({ email: "mango@mail.com" });
+// const mango = new User({ email: "mango@mail.com" });
 
-console.log(User.isEmailTaken("poly@mail.com"));
-console.log(User.isEmailTaken("mango@mail.com"));
+// console.log(User.isEmailTaken("poly@mail.com"));
+// console.log(User.isEmailTaken("mango@mail.com"));
+
+
+///////////////OOP
+
+// const objA = { x: 2 };
+
+
+// const objB = Object.create(objA);
+// objA.x = 7;
+
+
+// console.log(objB.hasOwnProperty('x'));
+// objB.count = 89;
+// objB.isOpen = true;
+// objB.isOpen = false;
+// console.log(objB.x);
+// console.log(objA.isOpen)
