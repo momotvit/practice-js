@@ -5078,38 +5078,128 @@
 
 /////////////////////////////////////////
 
-const historyService = {
-  orders: [
-    { email: "jacob@hotmail.com", dish: "Burrito" },
-    { email: "solomon@topmail.net", dish: "Burger" },
-    { email: "artemis@coldmail.net", dish: "Pizza" },
-    { email: "solomon@topmail.net", dish: "Apple pie" },
-    { email: "jacob@hotmail.com", dish: "Taco" },
-  ],
-  // Change code below this line
-  getOrdersLog() {
-    return this.orders
-      .map(order => `email: ${order.email} dish: ${order.dish}`)
-      .join(" - ");
-  },
-  getEmails() {
-    const emails = this.orders.map(order => order.email);
-    const uniqueEmails = new Set(emails);
-    return [...uniqueEmails];
-  },
-  getOrdersByEmail(email) {
-    return this.orders.filter(order => order.email === email);
-  },
-  // Change code above this line
-};
+// const historyService = {
+//   orders: [
+//     { email: "jacob@hotmail.com", dish: "Burrito" },
+//     { email: "solomon@topmail.net", dish: "Burger" },
+//     { email: "artemis@coldmail.net", dish: "Pizza" },
+//     { email: "solomon@topmail.net", dish: "Apple pie" },
+//     { email: "jacob@hotmail.com", dish: "Taco" },
+//   ],
+//   // Change code below this line
+//   getOrdersLog() {
+//     return this.orders
+//       .map(order => `email: ${order.email} dish: ${order.dish}`)
+//       .join(" - ");
+//   },
+//   getEmails() {
+//     const emails = this.orders.map(order => order.email);
+//     const uniqueEmails = new Set(emails);
+//     return [...uniqueEmails];
+//   },
+//   getOrdersByEmail(email) {
+//     return this.orders.filter(order => order.email === email);
+//   },
+//   // Change code above this line
+// };
 
-console.log(historyService.getOrdersLog());
-console.log(historyService.getEmails());
-console.log(historyService.getOrdersByEmail());
+// console.log(historyService.getOrdersLog());
+// console.log(historyService.getEmails());
+// console.log(historyService.getOrdersByEmail());
 
 
 
-const NewArray = [1, 1, 1, 1, 4, 5, 66, 4, 3, 6, 7, 7, 8];
 
-const uniqueNumbers = new Set(NewArray);
-console.log([...uniqueNumbers])
+////////////////////// new Set is looking for unique elements
+
+
+
+
+// const NewArray = [1, 1, 1, 1, 4, 5, 66, 4, 3, 6, 7, 7, 8];
+
+// const uniqueNumbers = [...new Set(NewArray)];
+// console.log(uniqueNumbers)
+
+
+
+///////////////////////////////////////
+
+
+// class Car {
+//   // Change code below this line
+// constructor(brand,model,price) {
+//   this.brand = brand;
+//   this.model = model;
+//   this.price = price;
+// }
+//   // Change code above this line
+// }
+
+// const newCar 
+
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
+
+  getItems(){
+    return this.items;
+  }
+  addItem(newItem){
+    this.items.push(newItem);
+  }
+  removeItem(itemToRemove){
+    for (let item of this.items) {
+      if (item === itemToRemove) {
+        this.items.splice(this.items.indexOf(item),1)
+        return this.items;
+        
+      }
+      
+    }
+  }
+}
+
+
+// Change code above this line
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem("Droid");
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem("Antigravitator");
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]this
+
+
+////////////////////////////////////
+
+
+class StringBuilder {
+  constructor(initialValue){
+    this.value=initialValue;
+  }
+  getValue(){
+    return this.value;
+  }
+  padEnd(str){
+    this.value = this.value + str;
+  }
+  padStart(str) {
+    this.value = str + this.value;
+  }
+ 
+  padBoth(str) {
+    this.value = str + this.value + str;
+  }
+  
+}
+
+
+// Change code above this line
+const builder = new StringBuilder(".");
+console.log(builder.getValue()); // "."
+builder.padStart("^");
+console.log(builder.getValue()); // "^."
+builder.padEnd("^");
+console.log(builder.getValue()); // "^.^"
+builder.padBoth("=");
+console.log(builder.getValue()); // "=^.^="
