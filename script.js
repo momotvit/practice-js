@@ -5137,69 +5137,83 @@
 
 // const newCar 
 
-class Storage {
-  constructor(items) {
-    this.items = items;
-  }
-
-  getItems(){
-    return this.items;
-  }
-  addItem(newItem){
-    this.items.push(newItem);
-  }
-  removeItem(itemToRemove){
-    for (let item of this.items) {
-      if (item === itemToRemove) {
-        this.items.splice(this.items.indexOf(item),1)
-        return this.items;
-        
-      }
-      
-    }
-  }
-}
+// 
 
 
-// Change code above this line
-const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-storage.addItem("Droid");
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-storage.removeItem("Antigravitator");
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]this
 
 
-////////////////////////////////////
+// ////////////////////////////////////
 
 
-class StringBuilder {
-  constructor(initialValue){
-    this.value=initialValue;
-  }
-  getValue(){
-    return this.value;
-  }
-  padEnd(str){
-    this.value = this.value + str;
-  }
-  padStart(str) {
-    this.value = str + this.value;
-  }
+// class StringBuilder {
+//   constructor(initialValue){
+//     this.value=initialValue;
+//   }
+//   getValue(){
+//     return this.value;
+//   }
+//   padEnd(str){
+//     this.value = this.value + str;
+//   }
+//   padStart(str) {
+//     this.value = str + this.value;
+//   }
  
-  padBoth(str) {
-    this.value = str + this.value + str;
-  }
+//   padBoth(str) {
+//     this.value = str + this.value + str;
+//   }
   
-}
+// }
 
 
-// Change code above this line
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
+// // Change code above this line
+// const builder = new StringBuilder(".");
+// console.log(builder.getValue()); // "."
+// builder.padStart("^");
+// console.log(builder.getValue()); // "^."
+// builder.padEnd("^");
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth("=");
+// console.log(builder.getValue()); // "=^.^="
+
+
+
+/////////////////////////////privet properties
+
+
+
+// class Storage {
+//   // Change code below this line
+// #items;
+//   constructor(items) {
+//     this.#items = items;
+//   }
+
+//   getItems() {
+//     return this.#items;
+//   }
+
+//   addItem(newItem) {
+//     this.#items.push(newItem);
+//   }
+
+//   removeItem(itemToRemove) {
+//     this.#items = this.#items.filter(item => item !== itemToRemove);
+//   }
+// }
+
+// // Change code above this line
+// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem("Droid");
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem("Antigravitator");
+// console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Droid"]
+
+
+
+/////////////////////////
+
+
+
+
