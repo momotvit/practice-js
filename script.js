@@ -5779,7 +5779,7 @@ class Storage{
 //     LOW: 'low',
 //     NORMAL: 'normal',
 //     HIGH: 'high'
-//   }  
+//   }
 
 //   constructor() {
 //     this.items = []
@@ -5810,9 +5810,9 @@ class Storage{
 // const myNotes = new Notes();
 // console.log(myNotes)
 
-// myNotes.addNote({ 
-//   text: Notes.defaultText, 
-//   priority: Notes.Priority.LOW 
+// myNotes.addNote({
+//   text: Notes.defaultText,
+//   priority: Notes.Priority.LOW
 // });
 
 // console.log(myNotes.items);
@@ -5842,27 +5842,99 @@ class Storage{
 // оголошує одну властивість `on` - стан вкл/викл (true/false). За замовчуванням
 // значення властивості `on` повинно бути `false`.
 
-class Toggle {
-  constructor({isOpen = false} = {}) {
-    this.on = isOpen;
-  }
+// class Toggle {
+//   constructor({isOpen = false} = {}) {
+//     this.on = isOpen;
+//   }
 
-  toggle() {
-    this.on = !this.on;
-  }
-}
+//   toggle() {
+//     this.on = !this.on;
+//   }
+// }
 
-// ```js
-const firstToggle = new Toggle({ isOpen: true });
-console.group('firstToggle');
-console.log(firstToggle.on);
-firstToggle.toggle();
-console.log(firstToggle.on);
-console.groupEnd('firstToggle');
+// // ```js
+// const firstToggle = new Toggle({ isOpen: true });
+// console.group('firstToggle');
+// console.log(firstToggle.on);
+// firstToggle.toggle();
+// console.log(firstToggle.on);
+// console.groupEnd('firstToggle');
 
-const secondToggle = new Toggle();
-console.group('secondToggle');
-console.log(secondToggle.on);
-secondToggle.toggle();
-console.log(secondToggle.on);
-console.groupEnd('secondToggle');
+// const secondToggle = new Toggle();
+// console.group('secondToggle');
+// console.log(secondToggle.on);
+// secondToggle.toggle();
+// console.log(secondToggle.on);
+// console.groupEnd('secondToggle');
+
+
+
+
+
+
+////////////////////////////////////DOM practice
+
+
+
+// console.log(document);
+
+// const body = document.body;
+// console.log(body);
+
+// const list = body.firstElementChild;
+// console.log(list);
+
+// const firstListItem = list.firstElementChild;
+// console.log(firstListItem);
+
+// const listItems = list.children;
+// console.log(listItems);
+
+// const firstChld = list.firstChild;
+// console.log(firstChld)
+
+
+
+///////////////////////////////////DOM practice #2
+
+
+// const listWithId = document.querySelector('#menu');
+// listWithId.style.textTransform = 'lowercase';
+// listWithId.style.fontSize = '45px';
+// console.log(listWithId);
+
+// const listWithClass = document.querySelector('.menu');
+// listWithClass.style.textTransform = "uppercase";
+// listWithClass.style.fontSize = '45px';
+// listWithClass.style.color = "blue";
+
+
+// console.log(listWithClass);
+
+// const menuItemsByTagName = document.querySelectorAll("li");
+// console.log(menuItemsByTagName);
+
+// const menuItemsByClass = document.querySelectorAll(".menu-item");
+// console.log(menuItemsByClass);
+
+// const firstMenuItem = document.querySelector(".menu-item");
+
+// firstMenuItem.style.color = 'tomato';
+// console.log(firstMenuItem.value);
+
+
+// ////////////////////////////////////DOM practice #3
+
+
+//===================================================
+const message = document.querySelector("#message");
+console.log(message.value); // Default textarea message
+
+//===================================================
+const activeLink = document.querySelector(".btn.active");
+console.log(activeLink.href); // https://s.codepen.io/about
+
+//===================================================
+const image = document.querySelector(".image");
+console.log(image.src); // https://placeimg.com/640/480/animals
+image.src = 'https://placeimg.com/640/480/tech';
