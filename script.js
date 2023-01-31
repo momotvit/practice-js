@@ -5926,15 +5926,141 @@ class Storage{
 // ////////////////////////////////////DOM practice #3
 
 
-//===================================================
-const message = document.querySelector("#message");
-console.log(message.value); // Default textarea message
+// //===================================================
+// const message = document.querySelector("#message");
+// console.log(message.value); // Default textarea message
 
-//===================================================
-const activeLink = document.querySelector(".btn.active");
-console.log(activeLink.href); // https://s.codepen.io/about
+// //===================================================
+// const activeLink = document.querySelector(".btn.active");
+// console.log(activeLink.href); // https://s.codepen.io/about
 
-//===================================================
-const image = document.querySelector(".image");
-console.log(image.src); // https://placeimg.com/640/480/animals
-image.src = 'https://placeimg.com/640/480/tech';
+// //===================================================
+// const image = document.querySelector(".image");
+// console.log(image.src); // https://placeimg.com/640/480/animals
+// image.src = 'https://placeimg.com/640/480/tech';
+
+
+///////////////////////////////DOM practice #4 classList.add.contains.remove.
+///////////////////////////////toggle. method forEach
+
+
+
+// const text = document.querySelector("#paragraph");
+
+// console.log(text.classList); // ["text", "red", "big", value: "text red big"]
+
+// console.log(text.classList.contains("red")); // true
+
+// text.classList.remove("big");
+// console.log(text.classList); // ["text", "red", value: "text red"]
+
+// text.classList.add("new-class");
+// console.log(text.classList); // ["text", "red", "new-class", value: "text red new-class"]
+
+// // Can add multiple classes
+// text.classList.add("a", "b", "c");
+// console.log(text.classList);
+
+// text.classList.toggle("is-hidden"); // will add is-hidden class
+// text.classList.toggle("is-hidden"); // will remove is-hidden class
+
+// // classList has a forEach method
+// text.classList.forEach(cls => {
+//   console.log(cls); // text, red, new-class
+// });
+
+// const body = document.querySelector("body");
+// body.style.backgroundColor = "red";
+// const text = document.querySelector("#paragraph");
+// text.style.color=("yellow");
+
+
+////////////////////////// <!-- practice #5  elem.attributes  -->
+
+
+// const image = document.querySelector(".image");
+
+// console.log(image.attributes); // NamedNodeMap {0: class, 1: src, 2: alt, length: 3}
+
+// console.log(image.hasAttribute("src")); // true
+
+// console.log(image.getAttribute("alt")); // "Lake and clouds"
+
+// image.setAttribute("alt", "beutiful nature");
+
+// console.log(image.getAttribute("alt")); // Amazing nature
+
+
+
+///////////////////////////////<!-- practice #5  data.attributes  -->
+
+
+// const saveBtn = document.querySelector('.editor button[data-action="save"]');
+// const closeBtn = document.querySelector('.editor button[data-action="close"]');
+
+// console.log(saveBtn.dataset.action); //save
+// console.log(closeBtn.dataset.action); //close
+
+// const dishes = document.querySelectorAll(".dishes > li");
+
+// dishes.forEach((dish) => {
+//   console.log(dish.dataset.id);
+// });
+
+
+
+// //////////////////////////code wars
+
+
+// function createPhoneNumber(numbers){
+//   return `(${numbers.slice(0, 3).join('')}) ${numbers.slice(3, 6).join('')}-${numbers.slice(6).join('')}`;
+  
+// }
+
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+
+//////////////////////////////
+
+
+
+// function likes(names) {
+//   for (let index = 0; index < names.length; index++) {
+//     // const element = array[index];
+  
+//     if (names.length === 1) {
+//       return `${names[0]} likes this`
+//     }
+//     else if (names.length === 2) {
+//       return `${names[0]} and ${names[1]} like this`
+//     }
+//     else if (names.length === 3) {
+//       return `${names[0]}, ${names[1]} and ${names[2]} like this`
+//     }
+//     else if (names.length >= 4) {
+//        return `${names[0]}, ${names[1]} and ${names.slice(2).length} others like this`
+//     }
+//   }
+//   return `no one likes this`
+  
+// }
+/////////////////////////////like this code below
+function likes(names) {
+  return {
+    0: 'no one likes this',
+    1: `${names[0]} likes this`, 
+    2: `${names[0]} and ${names[1]} like this`, 
+    3: `${names[0]}, ${names[1]} and ${names[2]} like this`, 
+    4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`, 
+  }[Math.min(4, names.length)]
+}
+
+console.log(likes([]));
+// console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']));
+  // it('should return correct text', function() {
+  //   assert.strictEqual(likes([]), 'no one likes this');
+  //   assert.strictEqual(likes(['Peter']), 'Peter likes this');
+  //   assert.strictEqual(likes(['Jacob', 'Alex']), 'Jacob and Alex like this');
+  //   assert.strictEqual(likes(['Max', 'John', 'Mark']), 'Max, John and Mark like this');
+  //   assert.strictEqual(likes(['Alex', 'Jacob', 'Mark', 'Max']), 'Alex, Jacob and 2 others like this');
+  // });
