@@ -5482,9 +5482,6 @@
 /////////////////////////////
 
 
-
-console.log("# Модуль 5. Заняття 10. Прототипи та класи");
-
 // Кахут
 
 // class Animal {
@@ -5551,22 +5548,22 @@ console.log("# Модуль 5. Заняття 10. Прототипи та кла
 
 // 1. створюємо клас з конструктором і обʼєктом параметрів
 
-class Blogger {
-  constructor({email,age,numberOfPosts,topics=[]}) {
-    this.email = email;
-    this.age = age;
-    this.numberOfPosts = numberOfPosts;
-    this.topics = topics;
-  }
-  getInfo() {
-    return `User ${this.email} is ${this.age} years old and has ${this.numberOfPosts} posts`
-  }
-  updatePostCount(value) {
-    return this.numberOfPosts += value;
+// class Blogger {
+//   constructor({email,age,numberOfPosts,topics=[]}) {
+//     this.email = email;
+//     this.age = age;
+//     this.numberOfPosts = numberOfPosts;
+//     this.topics = topics;
+//   }
+//   getInfo() {
+//     return `User ${this.email} is ${this.age} years old and has ${this.numberOfPosts} posts`
+//   }
+//   updatePostCount(value) {
+//     return this.numberOfPosts += value;
     
-  }
+//   }
 
-}
+// }
 
 
 
@@ -5587,20 +5584,20 @@ class Blogger {
 //   }
 // }
 
-const blogger = new Blogger({
-  email: 'mango@mail.com',
-  age: 24,
-  numberOfPosts: 20,
-  topics: ['tech', 'cooking']
-});
+// const blogger = new Blogger({
+//   email: 'mango@mail.com',
+//   age: 24,
+//   numberOfPosts: 20,
+//   topics: ['tech', 'cooking']
+// });
 
-const popularBlogger = new Blogger({
-  email: 'avocado@mail.com',
-  age: 28,
-  numberOfPosts: 459,
-  topics: ['music', 'drums', 'piano'],
+// const popularBlogger = new Blogger({
+//   email: 'avocado@mail.com',
+//   age: 28,
+//   numberOfPosts: 459,
+//   topics: ['music', 'drums', 'piano'],
 
-})
+// })
 // console.log(popularBlogger);
 // console.log(popularBlogger.getInfo())
 // popularBlogger.updatePostCount(79);
@@ -5626,12 +5623,12 @@ const popularBlogger = new Blogger({
 // console.log(mango.getInfo()); // User mango@mail.com is 24 years old and has 25 posts
 
 
-const poly = new Blogger({
-  email: 'poly@mail.com',
-  age: 19,
-  numberOfPosts: 17,
-  topics: ['sports', 'gaming', 'health'],
-});
+// const poly = new Blogger({
+//   email: 'poly@mail.com',
+//   age: 19,
+//   numberOfPosts: 17,
+//   topics: ['sports', 'gaming', 'health'],
+// });
 // console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 17 posts
 // poly.updatePostCount(4);
 // console.log(poly.getInfo()); // User poly@mail.com is 19 years old and has 21 posts
@@ -5650,20 +5647,20 @@ const poly = new Blogger({
 // - `addItem(item)` - отримує новий товар і додає його до поточних.
 // - `removeItem(item)` - отримує товар і, якщо він є, видаляє його з поточних.
 
-class Storage{
-  constructor(items) {
-    this.items = items;
-  }
-  getItems() {
-    return this.items;
-  }
-  addItem(item) {
-    this.items.push(item);
-  }
-  removeItem(item) {
-    this.items = this.items.filter(existingItem => existingItem !== item);
+// class Storage{
+//   constructor(items) {
+//     this.items = items;
+//   }
+//   getItems() {
+//     return this.items;
+//   }
+//   addItem(item) {
+//     this.items.push(item);
+//   }
+//   removeItem(item) {
+//     this.items = this.items.filter(existingItem => existingItem !== item);
     
-  }
+//   }
   //////////////////////this way or one above
 // removeItem(item) {
 //     const index = this._items.indexOf(item);
@@ -5671,7 +5668,7 @@ class Storage{
 //     if(index > -1) {
 //       this._items.splice(index, 1)
 //     }
-}
+// }
 
 
 
@@ -6045,17 +6042,17 @@ class Storage{
   
 // }
 /////////////////////////////like this code below
-function likes(names) {
-  return {
-    0: 'no one likes this',
-    1: `${names[0]} likes this`, 
-    2: `${names[0]} and ${names[1]} like this`, 
-    3: `${names[0]}, ${names[1]} and ${names[2]} like this`, 
-    4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`, 
-  }[Math.min(4, names.length)]
-}
+// function likes(names) {
+//   return {
+//     0: 'no one likes this',
+//     1: `${names[0]} likes this`,
+//     2: `${names[0]} and ${names[1]} like this`,
+//     3: `${names[0]}, ${names[1]} and ${names[2]} like this`,
+//     4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`,
+//   }[Math.min(4, names.length)]
+// }
 
-console.log(likes([]));
+// console.log(likes([]));
 // console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']));
   // it('should return correct text', function() {
   //   assert.strictEqual(likes([]), 'no one likes this');
@@ -6064,3 +6061,94 @@ console.log(likes([]));
   //   assert.strictEqual(likes(['Max', 'John', 'Mark']), 'Max, John and Mark like this');
   //   assert.strictEqual(likes(['Alex', 'Jacob', 'Mark', 'Max']), 'Alex, Jacob and 2 others like this');
   // });
+  
+
+
+//   const name1 = "abakmkmlkml";
+// console.log([...name1].join("")); // ["M", "a", "n", "g", "o"]
+
+
+// function solution(str) {
+//   let rebuiledString = [];
+//   const strToArr = [...str];
+// for (let index = 0; index < strToArr.length; index++) {
+// const deletedScores = strToArr.splice(0,2);
+
+//   rebuiledString.push(deletedScores)
+// }
+
+//   return rebuiledString;
+// }
+
+
+
+
+// Задача з codewars , чи є якесь коротше рішення цієі задачі?
+
+// Complete the solution so that it splits the string into 
+// pairs of two characters.If the string contains an odd number 
+// of characters then it should replace the missing second character 
+// of the final pair with an underscore('_').
+
+// Examples:
+
+// * 'abc' =>  ['ab', 'c_']
+// * 'abcdef' => ['ab', 'cd', 'ef']
+
+// function solution(str) {
+//   var string = str;
+//   strToArr = string.match(/.{1,2}/g);
+//   if (str === "") {
+//     return [];
+//   }
+
+//   for (let index = 0; index <  strToArr.length; index++) {
+//   let elOfArr =  strToArr[index];
+//   if ( elOfArr.length < 2) {
+//    strToArr.pop(elOfArr);
+//    elOfArr = elOfArr + "_";
+//    strToArr.push(elOfArr);
+
+// }
+  
+// }
+//   return  strToArr;
+// }
+
+
+
+// function solution(str) {
+//     str.length % 2 && (str += "_");
+//     return str.match(/.{1,2}/g) || [];
+// }
+
+
+function solution(s){
+   return (s+"_").match(/.{2}/g)||[]
+}
+console.log(solution("abcdefj")); // ['ab', 'cd', 'ef', 'j_']
+console.log(solution(""));  // []
+
+
+
+
+
+// function solution(str) {
+//   const string = str;
+//   if (string === "") {
+//     return [];
+//   }
+//   const strToArr = string.match(/.{1,2}/g);
+//   for (let iterator of strToArr) {
+//     if (iterator.length === 1) {
+//       strToArr.pop(iterator);
+//       iterator = iterator + "_";
+//       strToArr.push(iterator);
+//     } 
+//   }
+//   return strToArr;
+// }
+
+
+// console.log(solution("abcdefj")); // ['ab', 'cd', 'ef', 'j_']
+// console.log(solution(""));  // []
