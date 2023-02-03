@@ -5896,16 +5896,14 @@
 
 
 // const listWithId = document.querySelector('#menu');
-// listWithId.style.textTransform = 'lowercase';
-// listWithId.style.fontSize = '45px';
+// listWithId.style.textTransform = 'uppercase';
+// listWithId.style.fontSize = '15px';
 // console.log(listWithId);
 
 // const listWithClass = document.querySelector('.menu');
-// listWithClass.style.textTransform = "uppercase";
-// listWithClass.style.fontSize = '45px';
+// listWithClass.style.textTransform = "lowercase";
+// listWithClass.style.fontSize = '25px';
 // listWithClass.style.color = "blue";
-
-
 // console.log(listWithClass);
 
 // const menuItemsByTagName = document.querySelectorAll("li");
@@ -5923,7 +5921,7 @@
 // ////////////////////////////////////DOM practice #3
 
 
-// //===================================================
+//===================================================
 // const message = document.querySelector("#message");
 // console.log(message.value); // Default textarea message
 
@@ -6004,151 +6002,58 @@
 //   console.log(dish.dataset.id);
 // });
 
+/////////////////////////////////////////////  classList
 
 
-// //////////////////////////code wars
+// const text = document.querySelector("#paragraph");
+
+// console.log(text.classList); // ["text", "red", "big", value: "text red big"]
+
+// console.log(text.classList.contains("red")); // true
+
+// text.classList.remove("big");
+// console.log(text.classList); // ["text", "red", value: "text red"]
+
+// text.classList.add("new-class");
+// console.log(text.classList); // ["text", "red", "new-class", value: "text red new-class"]
+
+// // Can add multiple classes
+// text.classList.add("a", "b", "c");
+// console.log(text.classList);
+
+// text.classList.toggle("is-hidden"); // will add is-hidden class
+// text.classList.toggle("is-hidden"); // will remove is-hidden class
+
+// // classList has a forEach method
+// text.classList.forEach(cls => {
+//   console.log(cls); // text, red, new-class
+// });
+ 
 
 
-// function createPhoneNumber(numbers){
-//   return `(${numbers.slice(0, 3).join('')}) ${numbers.slice(3, 6).join('')}-${numbers.slice(6).join('')}`;
-  
-// }
+////////////////////////////inline styles
 
-// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+// const button = document.querySelector(".btn");
 
+// button.style.backgroundColor = "teal";
+// button.style.fontSize = "24px";
+// button.style.textAlign = "center";
 
-//////////////////////////////
-
-
-
-// function likes(names) {
-//   for (let index = 0; index < names.length; index++) {
-//     // const element = array[index];
-  
-//     if (names.length === 1) {
-//       return `${names[0]} likes this`
-//     }
-//     else if (names.length === 2) {
-//       return `${names[0]} and ${names[1]} like this`
-//     }
-//     else if (names.length === 3) {
-//       return `${names[0]}, ${names[1]} and ${names[2]} like this`
-//     }
-//     else if (names.length >= 4) {
-//        return `${names[0]}, ${names[1]} and ${names.slice(2).length} others like this`
-//     }
-//   }
-//   return `no one likes this`
-  
-// }
-/////////////////////////////like this code below
-// function likes(names) {
-//   return {
-//     0: 'no one likes this',
-//     1: `${names[0]} likes this`,
-//     2: `${names[0]} and ${names[1]} like this`,
-//     3: `${names[0]}, ${names[1]} and ${names[2]} like this`,
-//     4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`,
-//   }[Math.min(4, names.length)]
-// }
-
-// console.log(likes([]));
-// console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']));
-  // it('should return correct text', function() {
-  //   assert.strictEqual(likes([]), 'no one likes this');
-  //   assert.strictEqual(likes(['Peter']), 'Peter likes this');
-  //   assert.strictEqual(likes(['Jacob', 'Alex']), 'Jacob and Alex like this');
-  //   assert.strictEqual(likes(['Max', 'John', 'Mark']), 'Max, John and Mark like this');
-  //   assert.strictEqual(likes(['Alex', 'Jacob', 'Mark', 'Max']), 'Alex, Jacob and 2 others like this');
-  // });
-  
-
-
-//   const name1 = "abakmkmlkml";
-// console.log([...name1].join("")); // ["M", "a", "n", "g", "o"]
-
-
-// function solution(str) {
-//   let rebuiledString = [];
-//   const strToArr = [...str];
-// for (let index = 0; index < strToArr.length; index++) {
-// const deletedScores = strToArr.splice(0,2);
-
-//   rebuiledString.push(deletedScores)
-// }
-
-//   return rebuiledString;
-// }
+// console.log(button.style); // inline styles object
 
 
 
-
-// Задача з codewars , чи є якесь коротше рішення цієі задачі?
-
-// Complete the solution so that it splits the string into 
-// pairs of two characters.If the string contains an odd number 
-// of characters then it should replace the missing second character 
-// of the final pair with an underscore('_').
-
-// Examples:
-
-// * 'abc' =>  ['ab', 'c_']
-// * 'abcdef' => ['ab', 'cd', 'ef']
-
-// function solution(str) {
-//   var string = str;
-//   strToArr = string.match(/.{1,2}/g);
-//   if (str === "") {
-//     return [];
-//   }
-
-//   for (let index = 0; index <  strToArr.length; index++) {
-//   let elOfArr =  strToArr[index];
-//   if ( elOfArr.length < 2) {
-//    strToArr.pop(elOfArr);
-//    elOfArr = elOfArr + "_";
-//    strToArr.push(elOfArr);
-
-// }
-  
-// }
-//   return  strToArr;
-// }
+/////////////////////////////dataset
 
 
 
-// function solution(str) {
-//     str.length % 2 && (str += "_");
-//     return str.match(/.{1,2}/g) || [];
-// }
+const saveBtn = document.querySelector('.editor button[data-action="save"]');
+const closeBtn = document.querySelector('.editor button[data-action="close"]');
 
+console.log(saveBtn.dataset.action); //save
+console.log(closeBtn.dataset.action); //close
 
-function solution(s){
-   return (s+"_").match(/.{2}/g)||[]
-}
-console.log(solution("abcdefj")); // ['ab', 'cd', 'ef', 'j_']
-console.log(solution(""));  // []
-
-
-
-
-
-// function solution(str) {
-//   const string = str;
-//   if (string === "") {
-//     return [];
-//   }
-//   const strToArr = string.match(/.{1,2}/g);
-//   for (let iterator of strToArr) {
-//     if (iterator.length === 1) {
-//       strToArr.pop(iterator);
-//       iterator = iterator + "_";
-//       strToArr.push(iterator);
-//     } 
-//   }
-//   return strToArr;
-// }
-
-
-// console.log(solution("abcdefj")); // ['ab', 'cd', 'ef', 'j_']
-// console.log(solution(""));  // []
+const dishes = document.querySelectorAll(".dishes  > li");
+dishes.forEach((dish) => {
+  console.log(dish.dataset.id);
+});

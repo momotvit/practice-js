@@ -22,3 +22,11 @@ body {
     height: 50px;
     background-color: black;
 }
+
+.is-hidden {
+    display: none;
+}
+
+.btn:hover {
+    background-color: brown;
+}
