@@ -30,3 +30,26 @@ body {
 .btn:hover {
     background-color: brown;
 }
+
+
+.usernames {
+    padding-inline-start: 0%;
+
+}
+
+
+.usernames li {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    border: 2px dashed tomato;
+    text-transform: uppercase;
+    width: 60px;
+    text-align: center;
+    list-style-type: none;
+
+}
+
+.usernames li:not(:last-child) {
+    margin-bottom: 12px;
+}
