@@ -6173,7 +6173,7 @@
 
 const list = document.querySelector(".list");
 
-const newTechnologies = ["React", "TypeScript", "Node.js"];
+const newTechnologies = ["React", "TypeScript", "Node.js","Java","C++"];
 const markup = newTechnologies
   .map((technology) => `<li class="list-item new">${technology}</li>`)
   .join("");
